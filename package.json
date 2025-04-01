@@ -2,9 +2,11 @@
   "name": "basic_blog_express_ejs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.ts",
+    "dev": "nodemon src/index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +24,10 @@
     "mongoose": "^8.13.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.13.17",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
   }
 }
