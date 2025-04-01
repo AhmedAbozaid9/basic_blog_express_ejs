@@ -1,12 +1,23 @@
-import express, { Request, Response } from "express";
+// .env config
+import dotenv from "dotenv";
+dotenv.config();
+
+import express from "express";
+import mainRoute from "./server/routes/main";
+const expressLayout = require("express-ejs-layouts");
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT ?? 3000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
+app.use(express.static("public"));
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+// templating engine
+app.use(expressLayout);
+app.set("layout", "./layouts/main");
+app.set("view engine", "ejs");
+
+app.get("/", mainRoute);
+
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });
